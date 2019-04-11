@@ -1,6 +1,6 @@
-from . import views
 from django.urls import path
+from .views import FeatureView
 
 urlpatterns = [
-    path('api/', views.inference)
+    path('api/', FeatureView.as_view() )
 ]

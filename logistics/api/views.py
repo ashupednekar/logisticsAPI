@@ -9,12 +9,35 @@ from django.http import JsonResponse
 from django.core import serializers
 from django.conf import settings
 import json
+from keras.models import model_from_yaml
+from .models import Features
+from .serializers import FeatureSerializer
+import time
 
-@api_view(["POST"])
-def inference(data):
-    try:
-        x = json.loads(data.body)
-        y = str(x*10)
-        return JsonResponse('API response is: '+y, safe=False)
-    except ValueError as e:
-        return Response(e.args[0], status.HTTP_400_BAD_REQUEST)
+
+class FeatureView(APIView):
+
+    parser_classes = (MultiPartParser, FormParser)
+
+    def post(self, request, *args, **kwargs):
+        features = FeatureSerializer(data=request.data, required=False)
+        first = time.time()
+        if features.is_valid():
+            res = dict()
+            # load YAML and create model
+            yaml_file = open('model.yaml', 'r')
+            loaded_model_yaml = yaml_file.read()
+            yaml_file.close()
+            loaded_model = model_from_yaml(loaded_model_yaml)
+            # load weights into new model
+            loaded_model.load_weights("model.h5")
+            print("Loaded model from disk")
+            X = ['naruto', 'uzumaki']
+            # evaluate loaded model on test data
+            loaded_model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+            loaded_model.predict(X)
+            print("%s: %.2f%%" % (loaded_model.metrics_names[1], score[1] * 100))
+            print(time.time() - first)
+            return Response(res, status=status.HTTP_201_CREATED)
+        else:
+            return Response(features.errors, status=status.HTTP_400_BAD_REQUEST)
