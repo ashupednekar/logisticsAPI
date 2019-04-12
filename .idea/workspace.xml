@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d8e90743-0ef2-45c9-aec6-52d6ecc68f8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/logistics/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/logistics/api/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/logistics/api/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/logistics/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/logistics/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="d8e90743-0ef2-45c9-aec6-52d6ecc68f8f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/logistics/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+            <state relative-caret-position="199">
+              <caret line="37" column="44" lean-forward="true" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -166,12 +161,20 @@
       <option name="presentableId" value="Default" />
       <updated>1554977655974</updated>
       <workItem from="1554977658938" duration="4367000" />
-      <workItem from="1555057775911" duration="3112000" />
+      <workItem from="1555057775911" duration="3402000" />
     </task>
+    <task id="LOCAL-00001" summary="API almost complete">
+      <created>1555061067845</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1555061067846</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7479000" />
+    <option name="totallyTimeSpent" value="7769000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -202,6 +205,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="API almost complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="API almost complete" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/logistics/api/apps.py">
@@ -257,8 +264,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/logistics/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+        <state relative-caret-position="199">
+          <caret line="37" column="44" lean-forward="true" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
         </state>
       </provider>
     </entry>
