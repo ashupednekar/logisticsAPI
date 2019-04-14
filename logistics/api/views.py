@@ -23,7 +23,14 @@ class FeatureView(APIView):
         features = FeatureSerializer(data=request.data, required=False)
         first = time.time()
         if features.is_valid():
-            attr = features.data
+            attr = list()
+            for k, v in features.data.items():
+                attr.append([v])
+            print(attr)
+            #l = list()
+            #l.append(attr)
+            #for i in range(27):
+            #    l.append([])
             #load YAML and create model
             yaml_file = open('api/model.yaml', 'r')
             loaded_model_yaml = yaml_file.read()
@@ -33,15 +40,17 @@ class FeatureView(APIView):
             loaded_model.load_weights("api/model.h5")
             print("Loaded model from disk")
             import numpy as np
-            X = np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+            X = np.asarray(attr)
             sh = X.shape
             # evaluate loaded model on test data
             loaded_model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
-            if (X.ndim == 1):
-                X = np.array([X])
-            loaded_model.predict(X)
+            #if (X.ndim == 1):
+             #   X = np.array([X])
+            print(X)
+            print(X.T)
+            y = loaded_model.predict(X.T)
             #print("%s: %.2f%%" % (loaded_model.metrics_names[1], score[1] * 100))
             print(time.time() - first)
-            return Response(sh, status=status.HTTP_201_CREATED)
+            return Response(y, status=status.HTTP_201_CREATED)
         else:
             return Response(features.errors, status=status.HTTP_400_BAD_REQUEST)
